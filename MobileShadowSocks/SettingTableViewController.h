@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CodeScannerViewController.h"
 
-#define LOCAL_PORT 1983
+#define LOCAL_PORT 1080
 #define PAC_PORT 1993
 #define LOCAL_TIMEOUT 60
 

@@ -30,7 +30,7 @@
 			<key>SockNodeName</key>
 			<string>127.0.0.1</string>
 			<key>SockServiceName</key>
-			<string>1983</string>
+			<string>1080</string>
 		</dict>
 	</dict>
 	<key>StandardErrorPath</key>

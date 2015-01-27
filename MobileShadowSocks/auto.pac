@@ -1,7 +1,7 @@
 // Based on whitelist v1.2 by https://github.com/n0wa11
 
 function FindProxyForURL(url, host) {
-    var PROXY = 'SOCKS 127.0.0.1:1983';
+    var PROXY = 'SOCKS 127.0.0.1:1080';
     if (isPlainHostName(host)) return 'DIRECT';
     if (/^\d+\.\d+\.\d+\.\d+$/g.test(host)) return 'DIRECT';
     var rules = [
