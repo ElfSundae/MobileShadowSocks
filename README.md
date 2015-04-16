@@ -43,27 +43,27 @@ Yes, it is always available if the proxy settings are enabled. The icon badge of
 No. The daemon uses the "__On Demand__" mechanism of `launchd`, which means it is battery-friendly. It starts up only when receiving proxy requests. So, don't worry for battery life, __just leave it there__. :)
 
 #### 5. I cannot find any proxy settings in *Settings*. Is the proxy actually enabled? And where are the proxy settings?
-The proxy settings are **indeed** set successfully if you don't see any alert views when turning on the switch. Sometimes they just don't show in the Settings (or wrongly show in the proxy for VPN). If you want to check the status, call `scutil --proxy` in terminal.
+The proxy settings are **indeed** set successfully if you don't see any alert views when turning on the switch. Sometimes they just don't show in the Settings (or wrongly show in the proxy for VPN). For advanced users, try `scutil --proxy` to check proxy status in terminal.
 
-#### 6. I've uninstalled the app but forgotten to turn off the proxy. And my device cannot connect to the Internet any more? HALP!
-Don't panic. Just reset your network settings in Preferences and everything will be OK. Or you can re-install the app, disable the proxy and uninstall it again.
+#### 6. My device uses iOS 5.x and has installed the app from Cydia. But why does it show an earlier version in the about?
+The version in Cydia has removed the support for iOS 5.x and fall back to a legacy version. Please try to find the iOS 5.x compatible builds with new functions in the [Releases](https://github.com/linusyang/MobileShadowSocks/releases) section.
 
 ### Credits
 * [Shadowsocks](https://github.com/clowwindy/shadowsocks) project created by @[clowwindy](https://github.com/clowwindy)
 * Based on [Shadowsocks-libev](https://github.com/linusyang/shadowsocks-libev) from @[madeye](https://github.com/madeye)
 * App icon by @[madeye](https://github.com/madeye) from [Shadowsocks Android](https://github.com/shadowsocks/shadowsocks-android) (Too lazy to draw one by myself :P)
 * QR Code encoding and decoding by [ZXingObjC](https://github.com/TheLevelUp/ZXingObjC)
+* Force proxying Chrome on iOS 8 via [proxychains](https://github.com/haad/proxychains)
 
 ### Development
 
 #### Prerequisites
-* Xcode 4 or above (using latest version is recommended)
+* Xcode
 
-__Note__: You need to first quit Xcode completely and disable force code-sign of iOS SDK as follows (iOS 7.1 SDK as example, change to your current SDK version):
+__Note__: You need to first quit Xcode completely and disable force code-sign of iOS SDK as follows:
 
 ```bash
-SDKVER="7.1"
-SDKFILE="$(xcode-select --print-path)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS${SDKVER}.sdk/SDKSettings.plist"
+SDKFILE="$(xcode-select --print-path)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/SDKSettings.plist"
 sudo /usr/libexec/PlistBuddy -c "Set :DefaultProperties:CODE_SIGNING_REQUIRED NO" "$SDKFILE"
 sudo /usr/bin/plutil -convert binary1 "$SDKFILE"
 ```
@@ -76,6 +76,7 @@ Use the following command to download the project and build the main app:
 ```bash
 git clone --recursive https://github.com/linusyang/MobileShadowSocks.git
 cd MobileShadowSocks
+ln -s /opt/theos perapp-plugin/theos
 make
 ```
 
