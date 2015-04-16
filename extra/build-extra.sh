@@ -41,7 +41,7 @@ build_launcher() {
 # Codesign
 export CODESIGN_ALLOCATE="${TC_PATH}/codesign_allocate"
 python "${PROJECT_DIR}/extra/gen_entitlements.py" "com.linusyang.${PRODUCT_NAME}" "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent";
-codesign -f -s "iPhone Developer: Elf Sundae (8P8W7SEVT7)" --entitlements "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent" "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/"
+codesign -f -s "iPhone Developer: XiaoChun Xu (9D4MDFM6Y6)" --entitlements "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent" "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/"
 rm -f "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent"
 
 # Version info

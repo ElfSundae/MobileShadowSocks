@@ -388,7 +388,7 @@
 				ORGANIZATIONNAME = "Linus Yang";
 				TargetAttributes = {
 					4B3A810816BA4A2C00BE1B4C = {
-						DevelopmentTeam = ZA562ZPM4Z;
+						DevelopmentTeam = 93FB82XYEK;
 					};
 				};
 			};

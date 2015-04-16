@@ -1,0 +1,53 @@
+From 154933a4df80981ac3eedd110f1b86154701fac1 Mon Sep 17 00:00:00 2001
+From: Elf Sundae <elf.sundae@gmail.com>
+Date: Tue, 27 Jan 2015 17:01:52 +0800
+Subject: [PATCH] Change local socks port to 1080
+
+---
+ MobileShadowSocks/SettingTableViewController.h    | 2 +-
+ MobileShadowSocks/auto.pac                        | 2 +-
+ MobileShadowSocks/com.linusyang.shadowsocks.plist | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/MobileShadowSocks/SettingTableViewController.h b/MobileShadowSocks/SettingTableViewController.h
+index 2d6dcf5..e3ca735 100644
+--- a/MobileShadowSocks/SettingTableViewController.h
++++ b/MobileShadowSocks/SettingTableViewController.h
+@@ -9,7 +9,7 @@
+ #import <UIKit/UIKit.h>
+ #import "CodeScannerViewController.h"
+ 
+-#define LOCAL_PORT 1983
++#define LOCAL_PORT 1080
+ #define PAC_PORT 1993
+ #define LOCAL_TIMEOUT 60
+ 
+diff --git a/MobileShadowSocks/auto.pac b/MobileShadowSocks/auto.pac
+index 6461d11..64885ee 100644
+--- a/MobileShadowSocks/auto.pac
++++ b/MobileShadowSocks/auto.pac
+@@ -1,7 +1,7 @@
+ // Based on whitelist v1.2 by https://github.com/n0wa11
+ 
+ function FindProxyForURL(url, host) {
+-    var PROXY = 'SOCKS 127.0.0.1:1983';
++    var PROXY = 'SOCKS 127.0.0.1:1080';
+     if (isPlainHostName(host)) return 'DIRECT';
+     if (/^\d+\.\d+\.\d+\.\d+$/g.test(host)) return 'DIRECT';
+     var rules = [
+diff --git a/MobileShadowSocks/com.linusyang.shadowsocks.plist b/MobileShadowSocks/com.linusyang.shadowsocks.plist
+index a9b8bbd..6d53be7 100644
+--- a/MobileShadowSocks/com.linusyang.shadowsocks.plist
++++ b/MobileShadowSocks/com.linusyang.shadowsocks.plist
+@@ -30,7 +30,7 @@
+ 			<key>SockNodeName</key>
+ 			<string>127.0.0.1</string>
+ 			<key>SockServiceName</key>
+-			<string>1983</string>
++			<string>1080</string>
+ 		</dict>
+ 	</dict>
+ 	<key>StandardErrorPath</key>
+-- 
+1.9.5 (Apple Git-50.3)
+
